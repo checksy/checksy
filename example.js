@@ -1,5 +1,6 @@
 import {
   addRules,
+  isGreaterThan,
   isNumber,
   isString,
   isValidEmail,
@@ -14,13 +15,8 @@ addRules(validator, [
   {
     prop: "name",
     tests: [
-      {
-        test: isString,
-        message: "Name must be a string."
-      },
-      {
-        test: stringContains("John", false)
-      }
+      { test: isString, message: "Name must be a string." },
+      { test: stringContains("John", false) }
     ]
   },
   {
@@ -30,13 +26,14 @@ addRules(validator, [
   },
   {
     prop: "age",
-    required: false,
-    test: isNumber,
-    message: "Age must be a number."
+    tests: [
+      { test: isNumber, message: "Age must be a number." },
+      { test: isGreaterThan(20), message: "You must be 21 or older." }
+    ]
   }
 ]);
 
-const obj = { name: "Joh", email: "test@email.com", age: "32" };
+const obj = { name: "John", email: "test@email.com", age: 20 };
 
 const results = validate(obj, validator);
 

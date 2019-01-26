@@ -14,6 +14,12 @@ function isFalse(prop) {
   return prop === false;
 }
 
+function isGreaterThan(value) {
+  return function isGreaterThan(prop) {
+    return prop > value;
+  };
+}
+
 function isFunction(prop) {
   return typeof prop === "function";
 }
@@ -92,6 +98,7 @@ module.exports = {
   isBoolean,
   isFalse,
   isFunction,
+  isGreaterThan,
   isNull,
   isNumber,
   isString,
