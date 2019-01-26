@@ -31,12 +31,13 @@ addRules(validator, [
   },
   {
     prop: "age",
+    required: false,
     test: isNumber,
     message: "Age must be a number."
   }
 ]);
 
-const obj = { name: "John", email: "test@email.com", age: 32 };
+const obj = { name: "John", email: "test@email.com", age: "32" };
 
 const results = validate(obj, validator);
 
