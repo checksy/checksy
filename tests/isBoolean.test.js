@@ -19,3 +19,11 @@ test("Non-zero number variable is not boolean", () => {
 test("Zero number variable is not boolean", () => {
   expect(isBoolean(0)).toBe(false);
 });
+
+test("Object literal is not boolean", () => {
+  expect(isBoolean({ val: true })).toBe(false);
+});
+
+test("Null is not boolean", () => {
+  expect(isBoolean(null)).toBe(false);
+});
