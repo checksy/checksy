@@ -48,7 +48,7 @@ function isValidEmail(prop) {
 }
 
 function stringContains(text, caseSensitive = true) {
-  return function(prop) {
+  return function stringContains(prop) {
     if (!caseSensitive) {
       prop = prop.toLowerCase();
       text = text.toLowerCase();

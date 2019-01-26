@@ -19,8 +19,7 @@ addRules(validator, [
         message: "Name must be a string."
       },
       {
-        test: stringContains("John", false),
-        message: "Name must contain John."
+        test: stringContains("John", false)
       }
     ]
   },
@@ -37,7 +36,7 @@ addRules(validator, [
   }
 ]);
 
-const obj = { name: "John", email: "test@email.com", age: "32" };
+const obj = { name: "Joh", email: "test@email.com", age: "32" };
 
 const results = validate(obj, validator);
 
