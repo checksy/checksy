@@ -1,7 +1,5 @@
-const newValidator = function() {
-  return {
-    rules: []
-  };
+const Validator = function() {
+  this.rules = [];
 };
 
 function addRules(validator, rules) {
@@ -16,7 +14,9 @@ function validate(obj, validator) {
   let errors = [];
   validator.rules.forEach(rule => {
     if (!rule.test(obj[rule.prop])) {
-      errors.push(rule.message);
+      const message =
+        rule.message || `${rule.prop} failed the ${rule.test.name} test.`;
+      errors.push(message);
     }
   });
   return { valid: errors.length === 0, errors };
@@ -25,6 +25,6 @@ function validate(obj, validator) {
 module.exports = {
   addRules,
   isString,
-  newValidator,
-  validate
+  validate,
+  Validator
 };

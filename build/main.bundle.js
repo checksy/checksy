@@ -2,14 +2,14 @@
 
 var _index = require("../index.js");
 
-var validator = (0, _index.newValidator)();
+var validator = new _index.Validator();
+
 (0, _index.addRules)(validator, [{
   prop: "name",
-  test: _index.isString,
-  message: "Name must be a string"
+  test: _index.isString
 }]);
 
-var obj = { name: "23" };
+var obj = { name: 23 };
 
 var results = (0, _index.validate)(obj, validator);
 

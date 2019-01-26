@@ -1,6 +1,7 @@
-import { addRules, isString, newValidator, validate } from "../index.js";
+import { addRules, isString, validate, Validator } from "../index.js";
 
-let validator = newValidator();
+let validator = new Validator();
+
 addRules(validator, [
   {
     prop: "name",
@@ -9,7 +10,7 @@ addRules(validator, [
   }
 ]);
 
-const obj = { name: "23" };
+const obj = { name: 23 };
 
 let results = validate(obj, validator);
 
