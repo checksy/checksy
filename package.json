@@ -4,7 +4,7 @@
   "description": "An easy, minimal javascript validation library.",
   "main": "index.js",
   "scripts": {
-    "start": "babel --presets es2015 example.js -o build/main.bundle.js && node build/main.bundle.js"
+    "start": "babel --presets es2015 example.js -o example.bundle.js && node example.bundle.js"
   },
   "author": "Nick Scialli",
   "license": "MIT",
