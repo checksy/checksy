@@ -68,10 +68,19 @@ function validate(obj, validator) {
     }
 
     rule.tests.forEach(test => {
-      if (!test.test(obj[rule.prop])) {
-        const message =
-          test.message || `${rule.prop} failed the ${test.test.name} test.`;
+      const message =
+        test.message || `${rule.prop} failed the ${test.test.name} test.`;
+
+      // Throw error if prop is required but not provided
+      if (
+        !obj.hasOwnProperty(rule.prop) &&
+        (!rule.hasOwnProperty("required") || rule.required === true)
+      ) {
         errors.push(message);
+      } else if (obj.hasOwnProperty(rule.prop)) {
+        if (!test.test(obj[rule.prop])) {
+          errors.push(message);
+        }
       }
     });
   });
