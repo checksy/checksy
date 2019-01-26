@@ -7,7 +7,7 @@ import {
   stringContains,
   validate,
   Validator
-} from "./index.js";
+} from "./src/index.js";
 
 let validator = new Validator();
 
