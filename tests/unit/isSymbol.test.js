@@ -1,4 +1,4 @@
-const isSymbol = require("../src/index").isSymbol;
+const isSymbol = require("../../src/index").isSymbol;
 
 test("Symbol variable is symbol", () => {
   expect(isSymbol(Symbol("symbol"))).toBe(true);

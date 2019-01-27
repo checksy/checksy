@@ -1,4 +1,4 @@
-const stringContains = require("../src/index").stringContains;
+const stringContains = require("../../src/index").stringContains;
 
 test("String correctly contains another string", () => {
   expect(stringContains("test")("this contains test")).toBe(true);

@@ -1,4 +1,4 @@
-const isValidEmail = require("../src/index").isValidEmail;
+const isValidEmail = require("../../src/index").isValidEmail;
 
 test("Email variable is a valid email", () => {
   expect(isValidEmail("example@email.com")).toBe(true);

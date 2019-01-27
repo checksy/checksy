@@ -1,4 +1,4 @@
-const isFalse = require("../src/index").isFalse;
+const isFalse = require("../../src/index").isFalse;
 
 test("False variable is false", () => {
   expect(isFalse(false)).toBe(true);

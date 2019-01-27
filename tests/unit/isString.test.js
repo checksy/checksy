@@ -1,4 +1,4 @@
-const isString = require("../src/index").isString;
+const isString = require("../../src/index").isString;
 
 test("String variable is string", () => {
   expect(isString("stringy")).toBe(true);

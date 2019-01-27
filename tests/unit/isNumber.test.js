@@ -1,4 +1,4 @@
-const isNumber = require("../src/index").isNumber;
+const isNumber = require("../../src/index").isNumber;
 
 test("Number variable is number", () => {
   expect(isNumber(12)).toBe(true);

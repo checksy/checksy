@@ -1,4 +1,4 @@
-const isBoolean = require("../src/index").isBoolean;
+const isBoolean = require("../../src/index").isBoolean;
 
 test("True variable is boolean", () => {
   expect(isBoolean(true)).toBe(true);

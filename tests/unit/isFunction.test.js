@@ -1,4 +1,4 @@
-const isFunction = require("../src/index").isFunction;
+const isFunction = require("../../src/index").isFunction;
 
 function testFunc() {
   return "This is a function";

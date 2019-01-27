@@ -1,4 +1,4 @@
-const isNull = require("../src/index").isNull;
+const isNull = require("../../src/index").isNull;
 
 test("Null variable is null", () => {
   expect(isNull(null)).toBe(true);
