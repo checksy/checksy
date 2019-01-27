@@ -2,10 +2,6 @@ const Validator = function() {
   this.rules = [];
 };
 
-function addRules(validator, rules) {
-  validator.rules = validator.rules.concat(rules);
-}
-
 function isBoolean(prop) {
   return typeof prop === "boolean";
 }
@@ -64,9 +60,13 @@ function stringContains(text, caseSensitive = true) {
   };
 }
 
-function validate(obj, validator) {
+Validator.prototype.addRules = function(rules) {
+  this.rules = this.rules.concat(rules);
+};
+
+Validator.prototype.validate = function(obj) {
   let errors = [];
-  validator.rules.forEach(rule => {
+  this.rules.forEach(rule => {
     rule.tests = rule.tests || [];
     if (rule.test) {
       rule.tests.push({ test: rule.test, message: rule.message || null });
@@ -91,10 +91,9 @@ function validate(obj, validator) {
     });
   });
   return { valid: errors.length === 0, errors };
-}
+};
 
 module.exports = {
-  addRules,
   isBoolean,
   isFalse,
   isFunction,
@@ -107,6 +106,5 @@ module.exports = {
   isUndefined,
   isValidEmail,
   stringContains,
-  validate,
   Validator
 };

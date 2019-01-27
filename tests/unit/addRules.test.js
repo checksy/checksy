@@ -1,10 +1,8 @@
-const addRules = require("../../src/index").addRules;
+const Validator = require("../../src/index").Validator;
 
 test("Adding rule makes validation rules length 1", () => {
-  const validator = {
-    rules: []
-  };
+  const validator = new Validator();
 
-  addRules(validator, ["test"]);
+  validator.addRules(["test"]);
   expect(validator.rules.length).toBe(1);
 });

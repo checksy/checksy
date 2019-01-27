@@ -1,4 +1,4 @@
-const validate = require("../../src/index").validate;
+const Validator = require("../../src/index").Validator;
 
 test("True test will be valid", () => {
   const rule = {
@@ -7,8 +7,9 @@ test("True test will be valid", () => {
     message: "Name is always valid"
   };
   const obj = { name: "Joe" };
-  const validator = { rules: [rule] };
-  const results = validate(obj, validator);
+  const validator = new Validator();
+  validator.addRules([rule]);
+  const results = validator.validate(obj);
   expect(results.valid).toBe(true);
 });
 
@@ -19,8 +20,9 @@ test("False test will be invalid", () => {
     message: "Name is never valid"
   };
   const obj = { name: "Joe" };
-  const validator = { rules: [rule] };
-  const results = validate(obj, validator);
+  const validator = new Validator();
+  validator.addRules([rule]);
+  const results = validator.validate(obj);
   expect(results.valid).toBe(false);
 });
 
@@ -41,8 +43,9 @@ test("Multiple true rule tests will be valid", () => {
     }
   ];
   const obj = { name: "Joe" };
-  const validator = { rules };
-  const results = validate(obj, validator);
+  const validator = new Validator();
+  validator.addRules(rules);
+  const results = validator.validate(obj);
   expect(results.valid).toBe(true);
 });
 
@@ -53,7 +56,8 @@ test("Missing required prop will be invalid", () => {
     message: "Name is never valid"
   };
   const obj = { age: 32 };
-  const validator = { rules: [rule] };
-  const results = validate(obj, validator);
+  const validator = new Validator();
+  validator.addRules([rule]);
+  const results = validator.validate(obj);
   expect(results.valid).toBe(false);
 });

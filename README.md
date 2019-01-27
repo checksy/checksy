@@ -1,3 +1,50 @@
 # Validly README File
 
 [![Build Status](https://travis-ci.org/nas5w/validly.svg?branch=master)](https://travis-ci.org/nas5w/validly) [![Codecov Status](https://codecov.io/gh/nas5w/validly/branch/master/graph/badge.svg)](https://codecov.io/gh/nas5w/validly/branch/master)
+
+## Example Usage
+
+```javascript
+import {
+  isGreaterThan,
+  isNumber,
+  isString,
+  isValidEmail,
+  stringContains,
+  Validator
+} from "./src/index.js";
+
+let validator = new Validator();
+
+validator.addRules([
+  {
+    prop: "name",
+    tests: [
+      { test: isString, message: "Name must be a string." },
+      { test: stringContains("John", false) }
+    ]
+  },
+  {
+    prop: "email",
+    test: isValidEmail,
+    message: "Email must be valid."
+  },
+  {
+    prop: "age",
+    tests: [
+      { test: isNumber, message: "Age must be a number." },
+      { test: isGreaterThan(20), message: "You must be 21 or older." }
+    ]
+  }
+]);
+
+const obj = { name: "John", email: "testemail.com", age: 21 };
+
+const results = validator.validate(obj);
+
+if (results.valid) {
+  console.log("The object is valid!");
+} else {
+  console.log(results.errors);
+}
+```

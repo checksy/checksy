@@ -1,17 +1,15 @@
 import {
-  addRules,
   isGreaterThan,
   isNumber,
   isString,
   isValidEmail,
   stringContains,
-  validate,
   Validator
 } from "./src/index.js";
 
 let validator = new Validator();
 
-addRules(validator, [
+validator.addRules([
   {
     prop: "name",
     tests: [
@@ -33,9 +31,9 @@ addRules(validator, [
   }
 ]);
 
-const obj = { name: "John", email: "test@email.com", age: 20 };
+const obj = { name: "John", email: "testemail.com", age: 21 };
 
-const results = validate(obj, validator);
+const results = validator.validate(obj);
 
 if (results.valid) {
   console.log("The object is valid!");
