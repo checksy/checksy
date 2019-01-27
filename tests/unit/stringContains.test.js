@@ -7,3 +7,7 @@ test("String correctly contains another string", () => {
 test("Number variable is does not contain a string", () => {
   expect(stringContains(12)("this contains test")).toBe(false);
 });
+
+test("Case insensitive string is correctly contained", () => {
+  expect(stringContains("TeST", false)("this contains test")).toBe(true);
+});

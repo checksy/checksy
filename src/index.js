@@ -14,14 +14,14 @@ function isFalse(prop) {
   return prop === false;
 }
 
+function isFunction(prop) {
+  return typeof prop === "function";
+}
+
 function isGreaterThan(value) {
   return function isGreaterThan(prop) {
     return prop > value;
   };
-}
-
-function isFunction(prop) {
-  return typeof prop === "function";
 }
 
 function isNull(prop) {
