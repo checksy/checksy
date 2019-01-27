@@ -27,3 +27,7 @@ test("Object literal is not boolean", () => {
 test("Null is not boolean", () => {
   expect(isBoolean(null)).toBe(false);
 });
+
+test("Undefined is not boolean", () => {
+  expect(isBoolean(undefined)).toBe(false);
+});
