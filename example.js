@@ -15,7 +15,7 @@ validator.addRules([
     prop: "name",
     tests: [
       { test: isString, message: "Name must be a string." },
-      { test: stringContains("John", false) }
+      { test: stringContains("John"), message: "Name must be John" }
     ]
   },
   {
