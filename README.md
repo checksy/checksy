@@ -1,4 +1,4 @@
-# Checksy README File
+[![checksy](https://i.imgur.com/ZQgJPJ8.png)]
 
 [![Build Status](https://travis-ci.org/nas5w/checksy.svg?branch=master)](https://travis-ci.org/nas5w/checksy) [![Codecov Status](https://codecov.io/gh/nas5w/checksy/branch/master/graph/badge.svg)](https://codecov.io/gh/nas5w/checksy/branch/master)
 
