@@ -1,4 +1,5 @@
 import {
+  areEqual,
   isGreaterThan,
   isNumber,
   isString,
@@ -28,10 +29,21 @@ validator.addRules([
       { test: isNumber, message: "Age must be a number." },
       { test: isGreaterThan(20), message: "You must be 21 or older." }
     ]
+  },
+  {
+    prop: ["password", "passwordConfirm"],
+    test: areEqual,
+    message: "Passwords must be equal."
   }
 ]);
 
-const obj = { name: "John", email: "testemail.com", age: 21 };
+const obj = {
+  name: "John",
+  email: "testemail.com",
+  age: 21,
+  password: "password",
+  passwordConfirm: "password"
+};
 
 const results = validator.validate(obj);
 

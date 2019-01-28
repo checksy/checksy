@@ -2,6 +2,11 @@ const Validator = function() {
   this.rules = [];
 };
 
+function areEqual(...props) {
+  const reduced = [...new Set(props)];
+  return reduced.length === 1;
+}
+
 function isBoolean(prop) {
   return typeof prop === "boolean";
 }
@@ -74,26 +79,39 @@ Validator.prototype.validate = function(obj) {
     }
 
     rule.tests.forEach(test => {
-      const message =
-        test.message || `${rule.prop} failed the ${test.test.name} test.`;
+      if (!Array.isArray(rule.prop)) {
+        rule.prop = [rule.prop];
+      }
 
-      // Throw error if prop is required but not provided
+      const message =
+        test.message ||
+        `${rule.prop.join(", ")} failed the ${test.test.name} test.`;
+
+      let allPropsPresent = true;
+
+      rule.prop.forEach(prop => {
+        if (!obj.hasOwnProperty(prop)) allPropsPresent = false;
+      });
+
       if (
-        !obj.hasOwnProperty(rule.prop) &&
+        !allPropsPresent &&
         (!rule.hasOwnProperty("required") || rule.required === true)
       ) {
         errors.push(message);
-      } else if (obj.hasOwnProperty(rule.prop)) {
-        if (!test.test(obj[rule.prop])) {
+      } else if (allPropsPresent) {
+        const values = rule.prop.map(prop => obj[prop]);
+        if (!test.test(...values)) {
           errors.push(message);
         }
       }
     });
   });
+
   return { valid: errors.length === 0, errors };
 };
 
 module.exports = {
+  areEqual,
   isBoolean,
   isFalse,
   isFunction,
