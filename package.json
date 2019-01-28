@@ -1,24 +1,38 @@
 {
-  "name": "validly",
+  "name": "checksy",
   "version": "0.0.1",
   "description": "An easy, minimal javascript validation library.",
   "main": "index.js",
   "scripts": {
     "start": "babel --presets es2015 example.js -o example.bundle.js && node example.bundle.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src"
   },
   "author": "Nick Scialli",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.3.1",
+    "jest": "^24.0.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0"
   },
-  "dependencies": {
-    "jest": "^24.0.0"
-  },
+  "dependencies": {},
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
   }
 }

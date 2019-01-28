@@ -8,7 +8,7 @@ function areEqual(...props) {
 }
 
 function isBoolean(prop) {
-  return typeof prop === "boolean";
+  return typeof prop === 'boolean';
 }
 
 function isFalse(prop) {
@@ -16,7 +16,7 @@ function isFalse(prop) {
 }
 
 function isFunction(prop) {
-  return typeof prop === "function";
+  return typeof prop === 'function';
 }
 
 function isGreaterThan(value) {
@@ -30,15 +30,15 @@ function isNull(prop) {
 }
 
 function isNumber(prop) {
-  return typeof prop === "number";
+  return typeof prop === 'number';
 }
 
 function isString(prop) {
-  return typeof prop === "string";
+  return typeof prop === 'string';
 }
 
 function isSymbol(prop) {
-  return typeof prop === "symbol";
+  return typeof prop === 'symbol';
 }
 
 function isTrue(prop) {
@@ -46,7 +46,7 @@ function isTrue(prop) {
 }
 
 function isUndefined(prop) {
-  return typeof prop === "undefined";
+  return typeof prop === 'undefined';
 }
 
 function isValidEmail(prop) {
@@ -83,9 +83,7 @@ Validator.prototype.validate = function(obj) {
         rule.prop = [rule.prop];
       }
 
-      const message =
-        test.message ||
-        `${rule.prop.join(", ")} failed the ${test.test.name} test.`;
+      const message = test.message || `${rule.prop.join(', ')} failed the ${test.test.name} test.`;
 
       let allPropsPresent = true;
 
@@ -93,10 +91,7 @@ Validator.prototype.validate = function(obj) {
         if (!obj.hasOwnProperty(prop)) allPropsPresent = false;
       });
 
-      if (
-        !allPropsPresent &&
-        (!rule.hasOwnProperty("required") || rule.required === true)
-      ) {
+      if (!allPropsPresent && (!rule.hasOwnProperty('required') || rule.required === true)) {
         errors.push(message);
       } else if (allPropsPresent) {
         const values = rule.prop.map(prop => obj[prop]);
