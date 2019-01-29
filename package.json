@@ -4,6 +4,7 @@
   "description": "An easy, minimal javascript validation library.",
   "main": "index.js",
   "scripts": {
+    "docs": "documentation build src -f html -o docs",
     "start": "babel --presets es2015 example.js -o example.bundle.js && node example.bundle.js",
     "test": "jest",
     "lint": "eslint src"
@@ -22,7 +23,8 @@
     "husky": "^1.3.1",
     "jest": "^24.0.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.0.0"
+    "eslint-config-prettier": "^4.0.0",
+    "documentation": "^9.1.1"
   },
   "dependencies": {},
   "jest": {
