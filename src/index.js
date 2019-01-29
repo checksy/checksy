@@ -79,9 +79,10 @@ const { isGreaterThan } = require('./numbers');
 const { areEqual } = require('./multi');
 
 // Operators
-const { or } = require('./operators');
+const { and, or } = require('./operators');
 
 module.exports = {
+  and,
   areEqual,
   isBoolean,
   isFalse,
