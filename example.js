@@ -4,6 +4,7 @@ import {
   isNumber,
   isString,
   isValidEmail,
+  or,
   stringContains,
   Validator
 } from './src/index.js';
@@ -20,7 +21,7 @@ validator.addRules([
   },
   {
     prop: 'email',
-    test: isValidEmail,
+    test: or(isValidEmail, stringContains('Nick')),
     message: 'Email must be valid.'
   },
   {
@@ -39,7 +40,7 @@ validator.addRules([
 
 const obj = {
   name: 'John',
-  email: 'testemail.com',
+  email: 'Nick.com',
   age: 21,
   password: 'password',
   passwordConfirm: 'password'

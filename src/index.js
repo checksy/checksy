@@ -78,6 +78,18 @@ const { isGreaterThan } = require('./numbers');
 // Multi-prop validation
 const { areEqual } = require('./multi');
 
+function or(...tests) {
+  return function or(value) {
+    for (let i = 0; i < tests.length; i++) {
+      if (tests[i](value)) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+}
+
 module.exports = {
   areEqual,
   isBoolean,
@@ -91,6 +103,7 @@ module.exports = {
   isTrue,
   isUndefined,
   isValidEmail,
+  or,
   stringContains,
   Validator
 };
