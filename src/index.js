@@ -1,11 +1,25 @@
-const Validator = function() {
+/**
+ * Creates a new validation object.
+ * @returns {Object} A validation object with no rules.
+ */
+function Validator() {
   this.rules = [];
-};
+}
 
+/**
+ * This method adds rules to the validation object.
+ * @param {Object[]} rules Array of rule objects.
+ * @returns {undefined}
+ */
 Validator.prototype.addRules = function(rules) {
   this.rules = this.rules.concat(rules);
 };
 
+/**
+ * This method validates the supplied object.
+ * @param {Object} obj Object to be validated.
+ * @returns {Object} The validation results, including a boolean `result` property and an `errors` message array.
+ */
 Validator.prototype.validate = function(obj) {
   let errors = [];
   this.rules.forEach(rule => {
