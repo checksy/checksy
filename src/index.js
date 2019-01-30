@@ -73,7 +73,7 @@ const {
 const { isValidEmail, stringContains } = require('./strings');
 
 // Number validation
-const { isGreaterThan } = require('./numbers');
+const { isBetween, isEven, isGreaterThan, isLessThan, isOdd, min, max } = require('./numbers');
 
 // Multi-prop validation
 const { areEqual } = require('./multi');
@@ -84,17 +84,23 @@ const { and, or } = require('./operators');
 module.exports = {
   and,
   areEqual,
+  isBetween,
   isBoolean,
   isFalse,
   isFunction,
+  isEven,
   isGreaterThan,
+  isLessThan,
   isNull,
   isNumber,
+  isOdd,
   isString,
   isSymbol,
   isTrue,
   isUndefined,
   isValidEmail,
+  min,
+  max,
   or,
   stringContains,
   Validator
