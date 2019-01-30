@@ -72,6 +72,12 @@ const {
 // String validation
 const { isValidEmail, stringContains } = require('./strings');
 
+// Object validation
+const { hasKey, hasKeys, keyEquals } = require('./objects');
+
+// Array validation
+const { arrayContains } = require('./arrays');
+
 // Number validation
 const { isBetween, isEven, isGreaterThan, isLessThan, isOdd, min, max } = require('./numbers');
 
@@ -84,6 +90,9 @@ const { and, or } = require('./operators');
 module.exports = {
   and,
   areEqual,
+  arrayContains,
+  hasKey,
+  hasKeys,
   isBetween,
   isBoolean,
   isFalse,
@@ -99,6 +108,7 @@ module.exports = {
   isTrue,
   isUndefined,
   isValidEmail,
+  keyEquals,
   min,
   max,
   or,
