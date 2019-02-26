@@ -6,12 +6,10 @@ import {
   isValidEmail,
   or,
   stringContains,
-  Validator
+  validate
 } from './src/index.js';
 
-let validator = new Validator();
-
-validator.addRules([
+let rules = [
   {
     prop: 'name',
     tests: [
@@ -36,7 +34,7 @@ validator.addRules([
     test: areEqual,
     message: 'Passwords must be equal.'
   }
-]);
+];
 
 const obj = {
   name: 'John',
@@ -46,7 +44,7 @@ const obj = {
   passwordConfirm: 'password'
 };
 
-const results = validator.validate(obj);
+const results = validate(obj, rules);
 
 if (results.valid) {
   console.log('The object is valid!');

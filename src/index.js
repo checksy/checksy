@@ -1,28 +1,12 @@
 /**
- * Creates a new validation object.
- * @returns {Object} A validation object with no rules.
- */
-function Validator() {
-  this.rules = [];
-}
-
-/**
- * This method adds rules to the validation object.
- * @param {Object[]} rules Array of rule objects.
- * @returns {undefined}
- */
-Validator.prototype.addRules = function(rules) {
-  this.rules = this.rules.concat(rules);
-};
-
-/**
  * This method validates the supplied object.
  * @param {Object} obj Object to be validated.
+ * @param {Object[]} rules Array of rules to be applied.
  * @returns {Object} The validation results, including a boolean `result` property and an `errors` message array.
  */
-Validator.prototype.validate = function(obj) {
+const validate = function(obj, rules) {
   let errors = [];
-  this.rules.forEach(rule => {
+  rules.forEach(rule => {
     rule.tests = rule.tests || [];
     if (rule.test) {
       rule.tests.push({ test: rule.test, message: rule.message || null });
@@ -113,5 +97,5 @@ module.exports = {
   max,
   or,
   stringContains,
-  Validator
+  validate
 };
