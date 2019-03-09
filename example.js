@@ -19,7 +19,7 @@ let rules = [
   },
   {
     prop: 'email',
-    test: or(isValidEmail, stringContains('Nick')),
+    test: or(isValidEmail, stringContains('lalal')),
     message: 'Email must be valid.'
   },
   {
